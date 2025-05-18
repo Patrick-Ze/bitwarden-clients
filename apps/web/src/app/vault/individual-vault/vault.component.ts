@@ -518,7 +518,7 @@ export class VaultComponent implements OnInit, OnDestroy {
           selectedCollection,
         ]) => {
           this.filter = filter;
-          this.canAccessPremium = canAccessPremium;
+          this.canAccessPremium = true;
           this.allCollections = allCollections;
           this.allOrganizations = allOrganizations;
           this.ciphers = ciphers;

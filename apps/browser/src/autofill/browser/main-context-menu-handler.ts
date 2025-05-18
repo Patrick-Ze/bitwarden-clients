@@ -58,7 +58,6 @@ export class MainContextMenuHandler {
       id: COPY_VERIFICATION_CODE_ID,
       parentId: ROOT_ID,
       title: this.i18nService.t("copyVerificationCode"),
-      requiresPremiumAccess: true,
     },
     {
       id: SEPARATOR_ID + 1,
@@ -309,9 +308,7 @@ export class MainContextMenuHandler {
       }
 
       const account = await firstValueFrom(this.accountService.activeAccount$);
-      const canAccessPremium = await firstValueFrom(
-        this.billingAccountProfileStateService.hasPremiumFromAnySource$(account.id),
-      );
+      const canAccessPremium = true;
       if (canAccessPremium && (!cipher || !Utils.isNullOrEmpty(cipher.login?.totp))) {
         await createChildItem(COPY_VERIFICATION_CODE_ID);
       }
